@@ -1,0 +1,97 @@
+root:0>ping
+"PONG"   如何出现这个符号，说明连接成功
+
+
+一：string
+    是redis最基本的类型，是二进制的，可以存储任何数据，数字图片序列化对象
+    存储
+        设置键值
+            set key value
+        设置键值及过期时间，以秒为单位
+            setex key seconds value
+        设置多个键值
+            mset key value [ key value] 中括号可写可不写
+    获取
+        根据键获取值，如果不存在就返回None
+            get key
+        根据多个键获取多个值
+            mget key [key ....]
+    运算
+        要求：值是字符串类型的数字
+
+        将key对应的值加1
+            incr key
+        将key对应的值减1
+            decr key
+        将key对应的值加整数
+            incrby key intnumber
+        将key对应的值减整数
+            decrby key intnumber
+    其他
+        追加值
+            append key value
+        获取值的长度
+            strlen key
+二 key
+    查找键
+        keys pattern
+        keys * 查看所有的键
+    判断键是否存在 true 1 false 0
+        exists key
+    查看建对应的value的类型
+        type key
+    删除键及对应的值 true 1
+        del key [key]
+    设置过期时间，以秒为单位
+        expire key 5
+    查看有效时间，以秒为单位
+        ttl key
+三 hash 用于存储对象
+    {
+        name："tom",
+        age:18
+    }
+    设置单个值
+        hset key field value
+    设置多个值
+        hmset key field value [field value .....]
+    获取一个属性的值
+        hget key field
+    获取多个属性的值
+        hmget key field [field....]
+    获取所有属性和值
+        hgetall key
+    获取所有的属性
+        hkeys key
+    获取所有值
+        hvals key
+    返回包含数据的个数
+        hlen key
+    判断属性是否存在 true 1 false 0
+        hexists  key field
+    删除属性及值
+        hdel key field [key field]
+    返回值的字符串长度
+        hstrlen key field
+
+四 list   队列
+        列表的元素类型为string ，按照插入顺序排序，在列表的头部或者尾部插入元素
+    设置
+        在head insert
+            lpush key value [value ...] 
+        在food insert
+            rpush key value [value ...]
+        在一个元素的前|后插入一个新的元素
+            linsert key before|after pivot value
+        setting 指定索引的元素值
+            lset key index value #index 下标从0开始
+    获取
+        移出并返回key对应的list的第一个元素
+            lpop key
+        移出并返回key对应的list的最后一个元素
+            rpop key
+        返回存储在key的列表中指定范围的元素
+            lrange key start end   # start end 都是从0开始的 ，偏移量可以使负数
+    其他
+        
+

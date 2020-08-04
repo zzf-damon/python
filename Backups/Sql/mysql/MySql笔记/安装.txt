@@ -1,0 +1,32 @@
+安装命令
+#命令1
+sudo apt-get update
+#命令2
+sudo apt-get install mysql-server
+安装配置
+sudo mysql_secure_installation n n y n y
+ 检查mysql服务状态：
+systemctl status mysql.service
+根目录进去 sudo mysql -uroot -p
+GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY "zhang00a"; 创建密码
+##1 创建数据库first
+CREATE DATABASE first;
+##2 创建用户wxx(密码654321) 并赋予其weixx数据库的所有权限
+GRANT ALL PRIVILEGES ON first.* TO zzf@localhost IDENTIFIED BY "zhang00a";
+
+8.0不可以给所有权限了
+
+ grant execute,insert,select,update on first.* to 'zzf'@'%';
+
+##1 允许wxx用户可以从任意机器上登入mysql
+GRANT ALL PRIVILEGES ON first.* TO zzf@"%" IDENTIFIED BY "zhang00a"; 
+$sudo gedit /etc/mysql/my.cnf //配置文件
+##在最后添加如下配置，允许其他机器访问MySQL
+
+>skip-networking => # skip-networking
+>DQL 查询语句 select
+>DML 操作语句 insert delete update
+>DDL 定义语句 create drop alter
+>TCL 事务控制语句 commit rollback
+>create database 数据库名；
+>adfjalsdfjad 
