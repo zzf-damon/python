@@ -12,4 +12,4 @@ output = [['B', '1', 'E', '1', 'B'],
 
 
 def updateBoard(board, click):
-aaa
+    pass

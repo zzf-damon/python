@@ -34,5 +34,5 @@ print(solution(list_test))  # 开始
 
 
   
-while True:
-    k = input("输入一个数")
+# while True:
+#     k = input("输入一个数")
