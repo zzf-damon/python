@@ -19,7 +19,7 @@ def tem_res(used, tem_list):  # 判断是否为无环连通无向图
 
 def solution(list_test):
     number = list_test[0]  # 输入的第一个数
-    res = []  # 结果列表
+    res = []  # 结果列表                                        
     pre = 1
 
     for i in range(number):
