@@ -14,7 +14,7 @@ class Solution:
         def dfs(depth, path):
             if depth == length:
                 tem = ""
-                for i in path.copy():
+                for i in path:
                     tem += str(i)
                 res_list.append(tem)
                 return
