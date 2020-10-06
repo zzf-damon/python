@@ -4,5 +4,5 @@ log
 __pycache__
 .ipynb_checkpoints
 .vscode
-
+geckodriver.log
 
