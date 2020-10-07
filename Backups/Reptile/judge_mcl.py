@@ -5,7 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import NoSuchElementException,StaleElementReferenceException
 import requests,json
-
+from requests.exceptions import ConnectionError
+from json.decoder import JSONDecodeError
 
 punctuation = '!,;:?"\'. '
 pattern = r',|\.|/|;|\'|`|\[|\]|<|>|\?|:|"|\{|\}|\~|!|@|#|\$|%|\^|&|\(|\)|-|=|\_|\+|，|。|、|；|‘|’|【|】|·|！| |…|（|）'
@@ -52,7 +53,7 @@ while True:
             question_count = src_text.count("？")
             exclamation_count = src_text.count("！")
 
-            if end_count <= 1 or question_count <= 1 or exclamation_count <= 1:  # 判断中文句子
+            if end_count <= 1 and question_count <= 1 and exclamation_count <= 1:  # 判断中文句子
                 en_text = re.sub(r'[{}]+'.format(punctuation), '', teg_text)
                 if not en_text.encode('UTF-8').isalpha():  # 判断是否是全英文
                     src_len = list(jieba.cut(re.sub(pattern, "", src_text)))
@@ -71,5 +72,5 @@ while True:
             browser.quit()
     except KeyboardInterrupt:
         break
-    except NoSuchElementException and StaleElementReferenceException:
+    except NoSuchElementException and StaleElementReferenceException and ConnectionError and JSONDecodeError:
         print("没有找到元素")
