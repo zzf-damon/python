@@ -3,18 +3,17 @@ import re
 import time
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-from selenium.common.exceptions import NoSuchElementException,StaleElementReferenceException
-import requests,json
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
+import requests, json
 from requests.exceptions import ConnectionError
 from json.decoder import JSONDecodeError
+from urllib3.exceptions import ProtocolError
 
 punctuation = '!,;:?"\'. '
 pattern = r',|\.|/|;|\'|`|\[|\]|<|>|\?|:|"|\{|\}|\~|!|@|#|\$|%|\^|&|\(|\)|-|=|\_|\+|，|。|、|；|‘|’|【|】|·|！| |…|（|）'
 
 userName = "20192104103"
 password = "20192104103"
-
-
 
 while True:
     try:
@@ -72,5 +71,5 @@ while True:
             browser.quit()
     except KeyboardInterrupt:
         break
-    except NoSuchElementException and StaleElementReferenceException and ConnectionError and JSONDecodeError:
+    except NoSuchElementException and StaleElementReferenceException and ConnectionError and JSONDecodeError and ProtocolError:
         print("没有找到元素")
