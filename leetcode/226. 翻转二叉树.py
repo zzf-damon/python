@@ -1,3 +1,10 @@
+'''
+Author: zzf
+Date: 2020-09-16 09:48:56
+LastEditors: zzf
+LastEditTime: 2020-10-26 15:58:27
+Description: python script
+'''
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
