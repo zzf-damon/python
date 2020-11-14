@@ -35,12 +35,14 @@ if True:
     ret_list = m_list[:n]
 
     for i in range(n,10):
-        m = random.randint(1,i+1) 
+        m = random.randint(1,i+1)
         if m < n:
-            ret_list[m] = m_list[i] 
+            ret_list[m] = m_list[i]
 '''
 先将前n个数取出来放入结果集中，然后从第n+1个数开始遍历。假设遍历到第i个数，以n/i的概率替换掉j结果集中的某个元素即可
 '''
+
+
 
 
 

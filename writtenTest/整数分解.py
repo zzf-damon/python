@@ -1,27 +1,20 @@
-target = input()
+def solution(n, k):  # 整数分解
+    res = [1]
+    if k == 1: return res[0]
+
+    def count(path, index):
+        if sum(path) == n:
+            res[0] += 1
+        for i in range(index, n):
+            if len(path) < k and i not in path:
+                path.append(i)
+                count(path, i)
+                path.pop(-1)
+
+    count([], 1)
+    return res[0]
+
+
 n = int(input())
-
-dict_tem = {}
-
-for i in range(n):
-    pre, pro = input().split(" ")
-    if pre in dict_tem.keys():
-        dict_tem[pre] += [pro]
-    else:
-        dict_tem[pre] = [pro]
-
-res = []
-
-
-def dfs(number, used):
-    if number not in dict_tem.keys():
-        return
-    used.add(number)
-    for i in dict_tem[number]:
-        if i not in used:
-            res.append(i)
-            dfs(i, used)
-
-
-dfs(target, set())
-print(len(res))
+k = int(input())
+print(solution(n, k))
