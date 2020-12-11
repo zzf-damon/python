@@ -15,6 +15,7 @@ class TreeNode:
 
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
+
         if not root:
             return
         tem = root.left
@@ -25,7 +26,7 @@ class Solution:
         return root
 
 
-def createBinaryTree(a):
+def createBinaryTree(a:list[int]):
     root = TreeNode(a.pop(0))
     queue = [root]
 
