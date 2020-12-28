@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import numpy, jieba, re
-from bert_serving.client import BertClient
+from gensim.models import word2vec
 import numpy as np
 import jieba.posseg as pseg
 
-bc = BertClient(ip='222.197.219.11', check_version=False, check_length=False)
+bc = BertClient(ip='', check_version=False, check_length=False)
 with open("./Datas/stopwords.txt", "r", encoding='utf-8') as f:
     STOPWORDS = f.readlines()
 N_LIST = ["n", "nr", "nr1", "nr2", "nrj", "nrf", "ns", 'nsf', "nt", "nz", "nl", "ng", "v", "vd", "vn", "vshi", "vyou",

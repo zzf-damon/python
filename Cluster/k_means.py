@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from BertVector import bert_vector,bert_vector_cut
+# from BertVector import bert_vector,bert_vector_cut
 
 
 # 加载数据
