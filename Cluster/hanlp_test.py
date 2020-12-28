@@ -16,5 +16,10 @@ analyzer = ClusterAnalyzer()
 
 for i in range(len(labels)):
     analyzer.addDocument(i, contents[i])
-a = [list(i) for i in analyzer.repeatedBisection(10)]
+a = [list(i) for i in analyzer.repeatedBisection(10)]  # 三种传参方式，   int 指定k，  1.0 自动发现类
+print([len(i) for i in a])
+
+import jiagu
+
+a = jiagu.text_cluster(contents, features_method='tfidf', method="k-means", k=10, max_iter=100, eps=0.5, min_pts=2)
 print([len(i) for i in a])
