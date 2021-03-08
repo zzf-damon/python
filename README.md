@@ -9,7 +9,7 @@
 - Cluster 聚类
 - Experiment 自己写的一些方法和测试文件，
 - LeetCode  力扣
-- Surprise_test 推荐库的一些应用(可能不在这里更新)
+- 笔试  包含大厂笔试面试
 
 
 
