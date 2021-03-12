@@ -29,7 +29,6 @@ class Solution:
 def createBinaryTree(a:list[int]):
     root = TreeNode(a.pop(0))
     queue = [root]
-
     while a:
         i = queue.pop(0)
         i.left = TreeNode(a.pop(0)) if a[0] is not None else a.pop(0)
